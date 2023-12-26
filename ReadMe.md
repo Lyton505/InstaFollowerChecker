@@ -34,3 +34,19 @@ they do not follow you back**
       account you are following
 
 n.b: Without the format above, this program will fail
+
+### Procedure
+
+Simply run _checker.py_ in the directory containing the 2 required files. Run python with:
+
+`
+python3 checker.py
+`
+
+#### Next steps
+
+Time-permitting, I will:
+
+- change the code so that it uses the instagram API instead of user
+  downloaded files.
+- unfollow users automatically
