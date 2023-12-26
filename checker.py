@@ -4,14 +4,15 @@ import os
 
 def main():
     print(
-        "This program gives you a list of accounts that follow you but you don't follow them "
+        "This program gives you a list of accounts that you follow but they don't follow you "
         "back")
     if not foundFiles():
         print("\nOne or more file is missing in current directory/folder. Program is exiting")
         exit(-1)
     followers = getFollowers()
     following = getFollowing()
-    print(len(following))
+    nonFollowing = checkNonFollowing(followers, following)
+    printSummary(nonFollowing, following, followers)
 
 
 def foundFiles() -> bool:
@@ -51,6 +52,28 @@ def getFollowing() -> list:
             currFollowing = account['string_list_data'][0]['value']
             following.append(currFollowing)
     return following
+
+
+def checkNonFollowing(followers, following) -> list:
+    followers1 = set(followers)
+    following1 = set(following)
+
+    nonFollowing = following1 - followers1
+
+    return list(nonFollowing)
+
+
+def printSummary(nonFollowing, following, followers):
+    print("\nHere are your accounts stats:")
+    print(f"\tfollowing: {len(following)}")
+    print(f"\tfollowers: {len(followers)}")
+    if len(following) > len(followers):
+        print(f"\t% of non-followers: "
+              f"{round(((len(nonFollowing) / len(following)) * 100), 2)}%")
+        print(f"\n{len(following) - len(followers)} do not follow you back.\nHere is the "
+              f"list:")
+        for nonFollower in nonFollowing:
+            print(f"\t{nonFollower}")
 
 
 if __name__ == "__main__":
