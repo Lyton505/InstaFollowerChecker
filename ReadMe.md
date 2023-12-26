@@ -12,3 +12,12 @@ a list of accounts that follow you but you don't follow them back**
   Settings -> Your info and permission -> Download info --- download as json)
   - unzip and look for the files: followers_1.json, and following.json
 - python3
+
+### Expected format - Python
+
+1. followers_1.json
+   - list of dictionaries
+   - each dictionary contains 3 keys, one of which is _string_list_data_
+   - _string_list_data_ has a corresponding value that is a list nesting one dictionary
+   - the nested dictionary has 3 keys one of which is _value_ ---> this is the username of a 
+     follower
