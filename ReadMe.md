@@ -21,3 +21,13 @@ a list of accounts that follow you but you don't follow them back**
    - _string_list_data_ has a corresponding value that is a list nesting one dictionary
    - the nested dictionary has 3 keys one of which is _value_ ---> this is the username of a 
      follower
+
+2. following.json
+    - dictionary with the key _relationships_following_
+    - _relationships_following_ has the value of a list with dictionaries
+    - each dictionary contains 3 keys, one of which is _string_list_data_
+   - _string_list_data_ has a corresponding value that is a list nesting one dictionary
+   - the nested dictionary has 3 keys one of which is _value_ ---> this is the username of an 
+     account you are following
+
+n.b: Without the format above, this program will fail
