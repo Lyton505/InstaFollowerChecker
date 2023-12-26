@@ -1,3 +1,4 @@
+import json
 import os
 
 
@@ -8,6 +9,8 @@ def main():
     if not foundFiles():
         print("\nOne or more file is missing in current directory/folder. Program is exiting")
         exit(-1)
+    followers = getFollowers()
+    print(len(followers))
 
 
 def foundFiles() -> bool:
@@ -26,6 +29,17 @@ def foundFiles() -> bool:
         print('\tfollowing.json: not found')
 
     return found1 & found2
+
+
+def getFollowers() -> list:
+    followers = []
+    with open('followers_1.json', 'r') as file_obj:
+        followerData = json.load(file_obj)
+        for follower in followerData:
+            currFollower = follower['string_list_data'][0]['value']
+            followers.append(currFollower)
+
+    return followers
 
 
 if __name__ == "__main__":
