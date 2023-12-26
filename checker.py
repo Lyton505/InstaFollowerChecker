@@ -10,7 +10,8 @@ def main():
         print("\nOne or more file is missing in current directory/folder. Program is exiting")
         exit(-1)
     followers = getFollowers()
-    print(len(followers))
+    following = getFollowing()
+    print(len(following))
 
 
 def foundFiles() -> bool:
@@ -40,6 +41,16 @@ def getFollowers() -> list:
             followers.append(currFollower)
 
     return followers
+
+
+def getFollowing() -> list:
+    following = []
+    with open('following.json', 'r') as file_obj:
+        followingData = json.load(file_obj)
+        for account in followingData["relationships_following"]:
+            currFollowing = account['string_list_data'][0]['value']
+            following.append(currFollowing)
+    return following
 
 
 if __name__ == "__main__":
