@@ -2,11 +2,13 @@ import os
 
 
 def main():
-    print("This program gives you a list of accounts that follow you but you don't follow them "
-          "back")
+    print(
+        "This program gives you a list of accounts that follow you but you don't follow them "
+        "back")
     if not foundFiles():
         print("\nOne or more file is missing in current directory/folder. Program is exiting")
         exit(-1)
+
 
 def foundFiles() -> bool:
     found1 = False
