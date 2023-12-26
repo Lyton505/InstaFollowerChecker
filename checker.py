@@ -8,8 +8,6 @@ def main():
         print("\nOne or more file is missing in current directory/folder. Program is exiting")
         exit(-1)
 
-
-
 def foundFiles() -> bool:
     found1 = False
     found2 = False
